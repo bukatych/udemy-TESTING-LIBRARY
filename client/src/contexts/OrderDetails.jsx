@@ -62,9 +62,13 @@ export function OrderDetailsProvider(props) {
         return totalCount * pricePerItem[optionType];
     }
 
+    const totalScoops = calculateTotal('scoops');
+    const totalToppings = calculateTotal('toppings');
+
     const totals = {
-        scoops: calculateTotal('scoops'),
-        toppings: calculateTotal('toppings'),
+        scoops: totalScoops,
+        toppings: totalToppings,
+        grandTotal: totalScoops + totalToppings,
     };
 
     const value = { optionCounts, totals, updateItemCount, resetOrder };
